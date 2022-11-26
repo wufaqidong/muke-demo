@@ -1,0 +1,30 @@
+#所有环境公用的配置属性
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
+#连字符
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+---
+#生产环境
+server:
+  tomcat:
+    max-threads: 300
+    max-connections: 1000
+spring:
+  config:
+    activate:
+      on-profile: prod
+---
